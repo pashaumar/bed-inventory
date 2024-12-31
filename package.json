@@ -1,0 +1,28 @@
+{
+  "name": "bed-inventory",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "^4.11.2",
+    "apollo-server": "^3.13.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.7",
+    "graphql": "^16.10.0",
+    "jsonwebtoken": "^9.0.2",
+    "knex": "^3.1.0",
+    "lodash": "^4.17.21",
+    "nodemon": "^3.1.9",
+    "pg": "^8.13.1",
+    "vite": "^6.0.5",
+    "vite-plugin-node": "^4.0.0"
+  }
+}
