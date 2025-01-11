@@ -1,0 +1,52 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: pashaumar
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: graphql-backend
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: graphql-backend
+
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: us-east-1
+  stage: ${env:PROVIDER_STAGE, 'dev'}
+  environment:
+    DB_USER: ${env:DB_USER}
+    DB_HOST: ${env:DB_HOST}
+    DB_NAME: ${env:DB_NAME}
+    DB_PORT: ${env:DB_PORT}
+    DB_PASSWORD: ${env:DB_PASSWORD}
+
+plugins:
+  - serverless-esbuild
+  - serverless-offline
+
+build:
+  esbuild: false
+
+functions:
+  graphql:
+    handler: handler.graphqlHandler
+    events:
+      - http:
+          method: post
+          path: graphql
+  playground:
+    handler: handler.playgroundHandler
+    events:
+      - http:
+          method: get
+          path: playground
+
+custom:
+  esbuild:
+    external:
+      - "commonjs"
+      - "knex"
+      - "pg"
+
+package:
+  patterns:
+    - "./db/migrations/**"
