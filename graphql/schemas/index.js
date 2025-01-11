@@ -1,5 +1,5 @@
 // schema.js
-import { gql } from "apollo-server";
+import { gql } from "apollo-server-lambda";
 import { articleSchema } from "./articleSchema.js";
 import { soldSchema } from "./soldSchema.js";
 import { transferSchema } from "./transferSchema.js";

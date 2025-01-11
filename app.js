@@ -2,10 +2,7 @@ import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import typeDefs from "./graphql/schemas/index.js";
 import resolvers from "./graphql/resolvers/index.js";
-import dotenv from "dotenv";
 import knex from "./knexfile.js";
-
-dotenv.config();
 
 const PORT = process.env.PORT || 4000;
 
