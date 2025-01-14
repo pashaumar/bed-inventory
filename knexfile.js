@@ -14,5 +14,6 @@ export default {
     migrations: {
       directory: "./db/migrations",
     },
+    pool: { min: 2, max: 10, acquireTimeoutMillis: 30000 },
   },
 };
