@@ -1,7 +1,9 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-console.log(process.env.DB_PASSWORD);
+const pass = process.env.DB_PASSWORD + " ";
+
+console.log(pass);
 
 export default {
   development: {
