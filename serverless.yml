@@ -19,6 +19,7 @@ provider:
     DB_PORT: ${env:DB_PORT}
     DB_PASSWORD: ${env:DB_PASSWORD}
     DB_URL: ${env:DB_URL}
+    SERVERLESS_ACCESS_KEY: ${env:SERVERLESS_ACCESS_KEY}
 
 plugins:
   - serverless-esbuild
