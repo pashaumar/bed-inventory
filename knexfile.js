@@ -1,10 +1,6 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-const pass = process.env.DB_PASSWORD + " ";
-
-console.log(pass);
-
 export default {
   development: {
     client: "pg",
