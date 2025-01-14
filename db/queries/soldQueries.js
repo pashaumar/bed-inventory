@@ -1,4 +1,4 @@
-import db from "../dbClient.js";
+import db from "../../db.js";
 
 export const getAllSoldArticles = async (search, workshop_id) => {
   const query = db("sold_articles").select("*");

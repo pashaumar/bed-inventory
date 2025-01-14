@@ -6,7 +6,10 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "serverless offline start"
+    "start": "serverless offline start",
+    "knex_migration": "knex migrate:latest",
+    "staging_deploy": "serverless deploy --stage staging",
+    "prod_deploy": "serverless deploy --stage production"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +17,7 @@
   "dependencies": {
     "apollo-server-lambda": "^3.13.0",
     "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.7",
     "graphql": "^16.10.0",
     "graphql-playground-middleware-lambda": "^1.7.24",
     "jsonwebtoken": "^9.0.2",

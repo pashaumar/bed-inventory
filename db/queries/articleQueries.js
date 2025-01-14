@@ -1,4 +1,4 @@
-import db from "../dbClient.js";
+import db from "../../db.js";
 
 export const getAllArticles = async (search, workshop_id) => {
   const query = db("articles").select("*").where({ is_deleted: false });
@@ -21,6 +21,7 @@ export const getSingleArticle = async (id) => {
 };
 
 export const addArticle = async ({ name, price, quantity, workshop_id }) => {
+  console.log({ name, price, quantity, workshop_id });
   return await db("articles")
     .insert({ name, price, quantity, workshop_id })
     .returning("*");
