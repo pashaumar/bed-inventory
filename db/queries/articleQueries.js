@@ -15,6 +15,11 @@ export const getAllArticles = async (search, workshop_id) => {
 
   return await query;
 };
+export const getAllWorkshops = async () => {
+  const query = await db("workshops").select("*");
+
+  return query;
+};
 
 export const getSingleArticle = async (id) => {
   return await db("articles").select("*").where({ id, is_deleted: false });
