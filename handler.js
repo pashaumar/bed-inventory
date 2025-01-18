@@ -12,7 +12,13 @@ const server = new ApolloServer({
   context: () => ({ db }),
 });
 
-export const graphqlHandler = server.createHandler();
+export const graphqlHandler = server.createHandler({
+  cors: {
+    origin: "*",
+    credentials: false,
+    methods: ["POST", "OPTIONS"],
+  },
+});
 
 export const playgroundHandler = lambdaPlayground({
   endpoint: "/dev/graphql",
