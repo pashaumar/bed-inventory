@@ -34,7 +34,12 @@ functions:
       - http:
           method: post
           path: graphql
-          cors: true
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Authorization
+            allowCredentials: false
 
   playground:
     handler: handler.playgroundHandler
