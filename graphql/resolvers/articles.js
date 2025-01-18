@@ -16,8 +16,9 @@ export const articles = {
       const result = await getSingleArticle(id);
       return result[0];
     },
-    getAllWorkshops: async (_, { input: { search, workshop_id } = {} }) => {
-      return await getAllWorkshops;
+    getAllWorkshops: async () => {
+      const result = await getAllWorkshops();
+      return result;
     },
   },
   Mutation: {

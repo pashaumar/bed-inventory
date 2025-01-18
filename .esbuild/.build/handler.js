@@ -86587,9 +86587,15 @@ var articleSchema = import_apollo_server_lambda.gql`
     workshop_id: Int
   }
 
+  type Workshop {
+    id: ID!
+    name: String!
+  }
+
   type Query {
     getAllArticles(input: ArticleInput): [Article]
     getSingleArticle(input: ArticleInput): Article
+    getAllWorkshops: [Workshop!]!
   }
 
   type Mutation {
@@ -86765,11 +86771,15 @@ var knexfile_default = {
       user: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      port: process.env.DB_PORT
+      port: process.env.DB_PORT,
+      ssl: {
+        rejectUnauthorized: false
+      }
     },
     migrations: {
       directory: "./db/migrations"
-    }
+    },
+    pool: { min: 2, max: 10, acquireTimeoutMillis: 3e4 }
   }
 };
 
@@ -86834,13 +86844,15 @@ var getAllArticles = async (search, workshop_id) => {
     query.andWhere({ workshop_id });
   }
   const result = await query;
-  return await query;
+  return result;
+};
+var getAllWorkshops = async () => {
+  return await db_default("workshops").select("*");
 };
 var getSingleArticle = async (id) => {
   return await db_default("articles").select("*").where({ id, is_deleted: false });
 };
 var addArticle = async ({ name, price, quantity, workshop_id }) => {
-  console.log({ name, price, quantity, workshop_id });
   return await db_default("articles").insert({ name, price, quantity, workshop_id }).returning("*");
 };
 var updateArticle = async ({
@@ -86869,18 +86881,15 @@ var deleteArticle = async (id) => {
 var articles = {
   Query: {
     getAllArticles: async (_, { input: { search, workshop_id } = {} }) => {
-      console.log({
-        host: process.env.DB_HOST,
-        user: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
-        database: process.env.DB_NAME,
-        port: process.env.DB_PORT
-      });
       return await getAllArticles(search, workshop_id);
     },
     getSingleArticle: async (_, { input: { id } }) => {
       const result = await getSingleArticle(id);
       return result[0];
+    },
+    getAllWorkshops: async () => {
+      const result = await getAllWorkshops();
+      return result;
     }
   },
   Mutation: {

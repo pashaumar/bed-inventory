@@ -13,12 +13,10 @@ export const getAllArticles = async (search, workshop_id) => {
 
   const result = await query;
 
-  return await query;
+  return result;
 };
 export const getAllWorkshops = async () => {
-  const query = await db("workshops").select("*");
-
-  return query;
+  return await db("workshops").select("*");
 };
 
 export const getSingleArticle = async (id) => {
@@ -26,7 +24,6 @@ export const getSingleArticle = async (id) => {
 };
 
 export const addArticle = async ({ name, price, quantity, workshop_id }) => {
-  console.log({ name, price, quantity, workshop_id });
   return await db("articles")
     .insert({ name, price, quantity, workshop_id })
     .returning("*");
