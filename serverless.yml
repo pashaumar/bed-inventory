@@ -34,6 +34,16 @@ functions:
       - http:
           method: post
           path: graphql
+          cors:
+            origin: "*" # Or specify your frontend's URL for better security
+            headers:
+              - Content-Type
+              - Authorization
+              - X-Amz-Date
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+
   playground:
     handler: handler.playgroundHandler
     events:
