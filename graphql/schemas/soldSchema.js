@@ -33,5 +33,6 @@ export const soldSchema = gql`
     quantity_sold: Int!
     workshop_id: Int!
     name: String!
+    price: Float!
   }
 `;

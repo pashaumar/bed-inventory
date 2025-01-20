@@ -45,7 +45,7 @@ export const articleSchema = gql`
   input editArticleInput {
     id: ID!
     name: String
-    price: Float
+    price: Float!
     quantity: Int
     workshop_id: Int
   }
