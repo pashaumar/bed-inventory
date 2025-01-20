@@ -18,6 +18,7 @@ provider:
     DB_NAME: ${env:DB_NAME}
     DB_PORT: ${env:DB_PORT}
     DB_PASSWORD: ${env:DB_PASSWORD}
+    SERVERLESS_ACCESS_KEY: ${env:SERVERLESS_ACCESS_KEY}
 
 plugins:
   - serverless-esbuild
@@ -33,12 +34,20 @@ functions:
       - http:
           method: post
           path: graphql
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Authorization
+            allowCredentials: false
+
   playground:
     handler: handler.playgroundHandler
     events:
       - http:
           method: get
           path: playground
+          cors: true
 
 custom:
   esbuild:

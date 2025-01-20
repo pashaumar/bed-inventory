@@ -9,6 +9,7 @@ export const soldSchema = gql`
     workshop_id: Int!
     updated_at: String!
     updated_by: Int!
+    price: Float
   }
 
   extend type Query {
@@ -32,5 +33,6 @@ export const soldSchema = gql`
     quantity_sold: Int!
     workshop_id: Int!
     name: String!
+    price: Float!
   }
 `;

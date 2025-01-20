@@ -1,4 +1,4 @@
-import db from "../dbClient.js";
+import db from "../../db.js";
 
 export const getAllSoldArticles = async (search, workshop_id) => {
   const query = db("sold_articles").select("*");
@@ -20,7 +20,8 @@ export const addSoldArticle = async (
   article_id,
   quantity_sold,
   workshop_id,
-  name
+  name,
+  price
 ) => {
   // Deduct quantity from articles
   await db("articles")
@@ -34,6 +35,7 @@ export const addSoldArticle = async (
       article_id,
       quantity_sold,
       workshop_id,
+      price,
     })
     .returning("*");
 };

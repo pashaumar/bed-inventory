@@ -14,13 +14,14 @@ export const soldArticles = {
   Mutation: {
     createSoldArticle: async (
       _,
-      { input: { article_id, quantity_sold, workshop_id, name } }
+      { input: { article_id, quantity_sold, workshop_id, name, price } }
     ) => {
       const result = await addSoldArticle(
         article_id,
         quantity_sold,
         workshop_id,
-        name
+        name,
+        price
       );
       return result[0];
     },

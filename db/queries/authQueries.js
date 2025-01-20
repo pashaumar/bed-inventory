@@ -1,4 +1,4 @@
-import db from "../dbClient.js";
+import db from "../../db.js";
 
 export const createUser = async (email, password, name) => {
   return await db("users")
