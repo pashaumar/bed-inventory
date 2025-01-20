@@ -20,7 +20,8 @@ export const addSoldArticle = async (
   article_id,
   quantity_sold,
   workshop_id,
-  name
+  name,
+  price
 ) => {
   // Deduct quantity from articles
   await db("articles")
@@ -34,6 +35,7 @@ export const addSoldArticle = async (
       article_id,
       quantity_sold,
       workshop_id,
+      price,
     })
     .returning("*");
 };
