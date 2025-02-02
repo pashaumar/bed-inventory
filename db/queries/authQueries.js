@@ -13,7 +13,7 @@ export const createUser = async (email, password, name) => {
 
 export const getUserByEmail = async (email) => {
   return await db("users")
-    .select("id", "email", "password", "name", "created_at")
+    .select("id", "email", "password", "name", "created_at", "role")
     .where({ email })
     .first();
 };
