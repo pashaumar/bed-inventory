@@ -7,7 +7,10 @@ import {
 
 export const soldArticles = {
   Query: {
-    getAllSoldArticles: async (_, { input: { search, workshop_id } = {} }) => {
+    getAllSoldArticles: async (
+      _,
+      { input: { search, workshop_id, start_date, end_date } = {} }
+    ) => {
       return await getAllSoldArticles(
         search,
         workshop_id,
