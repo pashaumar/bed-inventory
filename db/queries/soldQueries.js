@@ -1,6 +1,11 @@
 import db from "../../db.js";
 
-export const getAllSoldArticles = async (search, workshop_id, date) => {
+export const getAllSoldArticles = async (
+  search,
+  workshop_id,
+  start_date,
+  end_date
+) => {
   const query = db("sold_articles").select("*");
 
   if (search) {
@@ -13,10 +18,10 @@ export const getAllSoldArticles = async (search, workshop_id, date) => {
     query.andWhere({ workshop_id });
   }
 
-  if (date) {
+  if (start_date && end_date) {
     query.andWhereBetween("updated_at", [
-      `${date} 00:00:00`,
-      `${date} 23:59:59`,
+      `${start_date} 00:00:00`,
+      `${end_date} 23:59:59`,
     ]);
   }
 
