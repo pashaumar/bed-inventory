@@ -19,6 +19,8 @@ export const soldSchema = gql`
   input SoldAllArticleInput {
     search: String
     workshop_id: Int
+    start_date: String
+    end_date: String
   }
 
   extend type Mutation {
