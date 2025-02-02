@@ -46,5 +46,21 @@ export const articles = {
       const result = await deleteArticle(id);
       return result[0];
     },
+    updateWorkshop: async (_, { id, name }) => {
+      try {
+        const updatedWorkshop = await knex("workshops")
+          .where({ id })
+          .update({ name })
+          .returning("*"); // Returns the updated row (PostgreSQL-specific)
+
+        if (!updatedWorkshop.length) {
+          throw new Error("Workshop not found");
+        }
+
+        return updatedWorkshop[0];
+      } catch (error) {
+        throw new Error(`Failed to update workshop: ${error.message}`);
+      }
+    },
   },
 };
