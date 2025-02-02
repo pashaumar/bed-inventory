@@ -16,7 +16,7 @@ export const getAllArticles = async (search, workshop_id) => {
   return result;
 };
 export const getAllWorkshops = async () => {
-  return await db("workshops").select("*");
+  return await db("workshops_v2").select("*");
 };
 
 export const getSingleArticle = async (id) => {
