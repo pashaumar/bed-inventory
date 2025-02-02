@@ -5,11 +5,10 @@ export async function up(knex) {
       table.string("name").notNullable();
     })
     .then(() => {
-      // Insert 3 predefined rows
       return knex("workshops").insert([
-        { name: "Workshop A" },
-        { name: "Workshop B" },
-        { name: "Workshop C" },
+        { name: "Muzahimiyah" },
+        { name: "Faisaliyah" },
+        { name: "Dammam" },
       ]);
     });
 }

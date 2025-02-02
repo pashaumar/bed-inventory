@@ -5,6 +5,8 @@ export const authSchema = gql`
     id: ID!
     name: String!
     email: String!
+    role: String!
+    workshop_id: Int
     token: String
   }
 
@@ -17,6 +19,8 @@ export const authSchema = gql`
     name: String!
     email: String!
     password: String!
+    role: String!
+    workshop_id: Int
   }
 
   input LoginInput {
