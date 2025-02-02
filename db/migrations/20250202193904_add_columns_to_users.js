@@ -1,6 +1,6 @@
 export async function up(knex) {
   return knex.schema.alterTable("users", (table) => {
-    table.string("role").notNullable();
+    table.string("role").notNullable().defaultTo("admin");
     table.integer("workshop_id");
   });
 }
