@@ -1,6 +1,6 @@
 import db from "../../db.js";
 
-export const getAllSoldArticles = async (search, workshop_id) => {
+export const getAllSoldArticles = async (search, workshop_id, date) => {
   const query = db("sold_articles").select("*");
 
   if (search) {
@@ -11,6 +11,13 @@ export const getAllSoldArticles = async (search, workshop_id) => {
 
   if (workshop_id) {
     query.andWhere({ workshop_id });
+  }
+
+  if (date) {
+    query.andWhereBetween("updated_at", [
+      `${date} 00:00:00`,
+      `${date} 23:59:59`,
+    ]);
   }
 
   return await query;
