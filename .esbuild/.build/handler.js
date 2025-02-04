@@ -1611,8 +1611,8 @@ var require_URL = __commonJS({
     var utils = require_utils();
     var Impl = require_URL_impl();
     var impl = utils.implSymbol;
-    function URL2(url) {
-      if (!this || this[impl] || !(this instanceof URL2)) {
+    function URL3(url) {
+      if (!this || this[impl] || !(this instanceof URL3)) {
         throw new TypeError("Failed to construct 'URL': Please use the 'new' operator, this DOM object constructor cannot be called as a function.");
       }
       if (arguments.length < 1) {
@@ -1628,7 +1628,7 @@ var require_URL = __commonJS({
       }
       module2.exports.setup(this, args);
     }
-    URL2.prototype.toJSON = function toJSON() {
+    URL3.prototype.toJSON = function toJSON() {
       if (!this || !module2.exports.is(this)) {
         throw new TypeError("Illegal invocation");
       }
@@ -1638,7 +1638,7 @@ var require_URL = __commonJS({
       }
       return this[impl].toJSON.apply(this[impl], args);
     };
-    Object.defineProperty(URL2.prototype, "href", {
+    Object.defineProperty(URL3.prototype, "href", {
       get() {
         return this[impl].href;
       },
@@ -1649,20 +1649,20 @@ var require_URL = __commonJS({
       enumerable: true,
       configurable: true
     });
-    URL2.prototype.toString = function() {
+    URL3.prototype.toString = function() {
       if (!this || !module2.exports.is(this)) {
         throw new TypeError("Illegal invocation");
       }
       return this.href;
     };
-    Object.defineProperty(URL2.prototype, "origin", {
+    Object.defineProperty(URL3.prototype, "origin", {
       get() {
         return this[impl].origin;
       },
       enumerable: true,
       configurable: true
     });
-    Object.defineProperty(URL2.prototype, "protocol", {
+    Object.defineProperty(URL3.prototype, "protocol", {
       get() {
         return this[impl].protocol;
       },
@@ -1673,7 +1673,7 @@ var require_URL = __commonJS({
       enumerable: true,
       configurable: true
     });
-    Object.defineProperty(URL2.prototype, "username", {
+    Object.defineProperty(URL3.prototype, "username", {
       get() {
         return this[impl].username;
       },
@@ -1684,7 +1684,7 @@ var require_URL = __commonJS({
       enumerable: true,
       configurable: true
     });
-    Object.defineProperty(URL2.prototype, "password", {
+    Object.defineProperty(URL3.prototype, "password", {
       get() {
         return this[impl].password;
       },
@@ -1695,7 +1695,7 @@ var require_URL = __commonJS({
       enumerable: true,
       configurable: true
     });
-    Object.defineProperty(URL2.prototype, "host", {
+    Object.defineProperty(URL3.prototype, "host", {
       get() {
         return this[impl].host;
       },
@@ -1706,7 +1706,7 @@ var require_URL = __commonJS({
       enumerable: true,
       configurable: true
     });
-    Object.defineProperty(URL2.prototype, "hostname", {
+    Object.defineProperty(URL3.prototype, "hostname", {
       get() {
         return this[impl].hostname;
       },
@@ -1717,7 +1717,7 @@ var require_URL = __commonJS({
       enumerable: true,
       configurable: true
     });
-    Object.defineProperty(URL2.prototype, "port", {
+    Object.defineProperty(URL3.prototype, "port", {
       get() {
         return this[impl].port;
       },
@@ -1728,7 +1728,7 @@ var require_URL = __commonJS({
       enumerable: true,
       configurable: true
     });
-    Object.defineProperty(URL2.prototype, "pathname", {
+    Object.defineProperty(URL3.prototype, "pathname", {
       get() {
         return this[impl].pathname;
       },
@@ -1739,7 +1739,7 @@ var require_URL = __commonJS({
       enumerable: true,
       configurable: true
     });
-    Object.defineProperty(URL2.prototype, "search", {
+    Object.defineProperty(URL3.prototype, "search", {
       get() {
         return this[impl].search;
       },
@@ -1750,7 +1750,7 @@ var require_URL = __commonJS({
       enumerable: true,
       configurable: true
     });
-    Object.defineProperty(URL2.prototype, "hash", {
+    Object.defineProperty(URL3.prototype, "hash", {
       get() {
         return this[impl].hash;
       },
@@ -1766,7 +1766,7 @@ var require_URL = __commonJS({
         return !!obj && obj[impl] instanceof Impl.implementation;
       },
       create(constructorArgs, privateData) {
-        let obj = Object.create(URL2.prototype);
+        let obj = Object.create(URL3.prototype);
         this.setup(obj, constructorArgs, privateData);
         return obj;
       },
@@ -1776,10 +1776,10 @@ var require_URL = __commonJS({
         obj[impl] = new Impl.implementation(constructorArgs, privateData);
         obj[impl][utils.wrapperSymbol] = obj;
       },
-      interface: URL2,
+      interface: URL3,
       expose: {
-        Window: { URL: URL2 },
-        Worker: { URL: URL2 }
+        Window: { URL: URL3 },
+        Worker: { URL: URL3 }
       }
     };
   }
@@ -2626,12 +2626,12 @@ var require_lib2 = __commonJS({
       configurable: true
     });
     var INTERNALS$2 = Symbol("Request internals");
-    var URL2 = Url.URL || whatwgUrl.URL;
+    var URL3 = Url.URL || whatwgUrl.URL;
     var parse_url = Url.parse;
     var format_url = Url.format;
     function parseURL(urlStr) {
       if (/^[a-zA-Z][a-zA-Z\d+\-.]*:/.exec(urlStr)) {
-        urlStr = new URL2(urlStr).toString();
+        urlStr = new URL3(urlStr).toString();
       }
       return parse_url(urlStr);
     }
@@ -51755,16 +51755,16 @@ function v35(name, version2, hashfunc) {
   } catch (err) {
   }
   generateUUID.DNS = DNS;
-  generateUUID.URL = URL;
+  generateUUID.URL = URL2;
   return generateUUID;
 }
-var DNS, URL;
+var DNS, URL2;
 var init_v35 = __esm({
   "node_modules/uuid/dist/esm-node/v35.js"() {
     init_stringify();
     init_parse();
     DNS = "6ba7b810-9dad-11d1-80b4-00c04fd430c8";
-    URL = "6ba7b811-9dad-11d1-80b4-00c04fd430c8";
+    URL2 = "6ba7b811-9dad-11d1-80b4-00c04fd430c8";
   }
 });
 
@@ -52069,30 +52069,41 @@ var require_gql = __commonJS({
 var require_package = __commonJS({
   "node_modules/apollo-server-core/package.json"(exports2, module2) {
     module2.exports = {
-      name: "apollo-server-core",
-      version: "3.13.0",
-      description: "Core engine for Apollo GraphQL server",
-      main: "dist/index.js",
-      types: "dist/index.d.ts",
-      repository: {
-        type: "git",
-        url: "https://github.com/apollographql/apollo-server",
-        directory: "packages/apollo-server-core"
-      },
-      keywords: [
-        "GraphQL",
-        "Apollo",
-        "Server",
-        "Javascript"
+      _args: [
+        [
+          "apollo-server-core@3.13.0",
+          "/Users/mohdumar/BE/bed-inventory"
+        ]
       ],
-      author: "Apollo <packages@apollographql.com>",
-      license: "MIT",
+      _from: "apollo-server-core@3.13.0",
+      _id: "apollo-server-core@3.13.0",
+      _inBundle: false,
+      _integrity: "sha512-v/g6DR6KuHn9DYSdtQijz8dLOkP78I5JSVJzPkARhDbhpH74QNwrQ2PP2URAPPEDJ2EeZNQDX8PvbYkAKqg+kg==",
+      _location: "/apollo-server-core",
+      _phantomChildren: {},
+      _requested: {
+        type: "version",
+        registry: true,
+        raw: "apollo-server-core@3.13.0",
+        name: "apollo-server-core",
+        escapedName: "apollo-server-core",
+        rawSpec: "3.13.0",
+        saveSpec: null,
+        fetchSpec: "3.13.0"
+      },
+      _requiredBy: [
+        "/apollo-server-express",
+        "/apollo-server-lambda"
+      ],
+      _resolved: "https://registry.npmjs.org/apollo-server-core/-/apollo-server-core-3.13.0.tgz",
+      _spec: "3.13.0",
+      _where: "/Users/mohdumar/BE/bed-inventory",
+      author: {
+        name: "Apollo",
+        email: "packages@apollographql.com"
+      },
       bugs: {
         url: "https://github.com/apollographql/apollo-server/issues"
-      },
-      homepage: "https://github.com/apollographql/apollo-server#readme",
-      engines: {
-        node: ">=12.0"
       },
       dependencies: {
         "@apollo/utils.keyvaluecache": "^1.0.1",
@@ -52119,10 +52130,31 @@ var require_package = __commonJS({
         uuid: "^9.0.0",
         "whatwg-mimetype": "^3.0.0"
       },
+      description: "Core engine for Apollo GraphQL server",
+      engines: {
+        node: ">=12.0"
+      },
+      gitHead: "f93284e853efd6da46d91ae40da47a2dd15b61fe",
+      homepage: "https://github.com/apollographql/apollo-server#readme",
+      keywords: [
+        "GraphQL",
+        "Apollo",
+        "Server",
+        "Javascript"
+      ],
+      license: "MIT",
+      main: "dist/index.js",
+      name: "apollo-server-core",
       peerDependencies: {
         graphql: "^15.3.0 || ^16.0.0"
       },
-      gitHead: "f93284e853efd6da46d91ae40da47a2dd15b61fe"
+      repository: {
+        type: "git",
+        url: "git+https://github.com/apollographql/apollo-server.git",
+        directory: "packages/apollo-server-core"
+      },
+      types: "dist/index.d.ts",
+      version: "3.13.0"
     };
   }
 });
@@ -70059,7 +70091,7 @@ var require_mime_db = __commonJS({
 var require_mime_types = __commonJS({
   "node_modules/mime-types/index.js"(exports2) {
     "use strict";
-    var db3 = require_mime_db();
+    var db2 = require_mime_db();
     var extname = require("path").extname;
     var EXTRACT_TYPE_REGEXP = /^\s*([^;\s]*)(?:;|\s|$)/;
     var TEXT_TYPE_REGEXP = /^text\//i;
@@ -70076,7 +70108,7 @@ var require_mime_types = __commonJS({
         return false;
       }
       var match = EXTRACT_TYPE_REGEXP.exec(type);
-      var mime = match && db3[match[1].toLowerCase()];
+      var mime = match && db2[match[1].toLowerCase()];
       if (mime && mime.charset) {
         return mime.charset;
       }
@@ -70122,8 +70154,8 @@ var require_mime_types = __commonJS({
     }
     function populateMaps(extensions, types) {
       var preference = ["nginx", "apache", void 0, "iana"];
-      Object.keys(db3).forEach(function forEachMimeType(type) {
-        var mime = db3[type];
+      Object.keys(db2).forEach(function forEachMimeType(type) {
+        var mime = db2[type];
         var exts = mime.extensions;
         if (!exts || !exts.length) {
           return;
@@ -70132,7 +70164,7 @@ var require_mime_types = __commonJS({
         for (var i = 0; i < exts.length; i++) {
           var extension2 = exts[i];
           if (types[extension2]) {
-            var from = preference.indexOf(db3[types[extension2]].source);
+            var from = preference.indexOf(db2[types[extension2]].source);
             var to = preference.indexOf(mime.source);
             if (types[extension2] !== "application/octet-stream" && (from > to || from === to && types[extension2].substr(0, 12) === "application/")) {
               continue;
@@ -71239,6 +71271,38 @@ var require_pow = __commonJS({
   }
 });
 
+// node_modules/math-intrinsics/round.js
+var require_round = __commonJS({
+  "node_modules/math-intrinsics/round.js"(exports2, module2) {
+    "use strict";
+    module2.exports = Math.round;
+  }
+});
+
+// node_modules/math-intrinsics/isNaN.js
+var require_isNaN = __commonJS({
+  "node_modules/math-intrinsics/isNaN.js"(exports2, module2) {
+    "use strict";
+    module2.exports = Number.isNaN || function isNaN2(a) {
+      return a !== a;
+    };
+  }
+});
+
+// node_modules/math-intrinsics/sign.js
+var require_sign = __commonJS({
+  "node_modules/math-intrinsics/sign.js"(exports2, module2) {
+    "use strict";
+    var $isNaN = require_isNaN();
+    module2.exports = function sign(number) {
+      if ($isNaN(number) || number === 0) {
+        return number;
+      }
+      return number < 0 ? -1 : 1;
+    };
+  }
+});
+
 // node_modules/gopd/gOPD.js
 var require_gOPD = __commonJS({
   "node_modules/gopd/gOPD.js"(exports2, module2) {
@@ -71355,6 +71419,23 @@ var require_has_symbols = __commonJS({
       }
       return hasSymbolSham();
     };
+  }
+});
+
+// node_modules/get-proto/Reflect.getPrototypeOf.js
+var require_Reflect_getPrototypeOf = __commonJS({
+  "node_modules/get-proto/Reflect.getPrototypeOf.js"(exports2, module2) {
+    "use strict";
+    module2.exports = typeof Reflect !== "undefined" && Reflect.getPrototypeOf || null;
+  }
+});
+
+// node_modules/get-proto/Object.getPrototypeOf.js
+var require_Object_getPrototypeOf = __commonJS({
+  "node_modules/get-proto/Object.getPrototypeOf.js"(exports2, module2) {
+    "use strict";
+    var $Object = require_es_object_atoms();
+    module2.exports = $Object.getPrototypeOf || null;
   }
 });
 
@@ -71527,6 +71608,26 @@ var require_get = __commonJS({
   }
 });
 
+// node_modules/get-proto/index.js
+var require_get_proto = __commonJS({
+  "node_modules/get-proto/index.js"(exports2, module2) {
+    "use strict";
+    var reflectGetProto = require_Reflect_getPrototypeOf();
+    var originalGetProto = require_Object_getPrototypeOf();
+    var getDunderProto = require_get();
+    module2.exports = reflectGetProto ? function getProto(O) {
+      return reflectGetProto(O);
+    } : originalGetProto ? function getProto(O) {
+      if (!O || typeof O !== "object" && typeof O !== "function") {
+        throw new TypeError("getProto: not an object");
+      }
+      return originalGetProto(O);
+    } : getDunderProto ? function getProto(O) {
+      return getDunderProto(O);
+    } : null;
+  }
+});
+
 // node_modules/hasown/index.js
 var require_hasown = __commonJS({
   "node_modules/hasown/index.js"(exports2, module2) {
@@ -71556,6 +71657,8 @@ var require_get_intrinsic = __commonJS({
     var max = require_max();
     var min = require_min();
     var pow = require_pow();
+    var round = require_round();
+    var sign = require_sign();
     var $Function = Function;
     var getEvalledConstructor = function(expressionSyntax) {
       try {
@@ -71581,8 +71684,9 @@ var require_get_intrinsic = __commonJS({
       }
     }() : throwTypeError;
     var hasSymbols = require_has_symbols()();
-    var getDunderProto = require_get();
-    var getProto = typeof Reflect === "function" && Reflect.getPrototypeOf || $Object.getPrototypeOf || getDunderProto;
+    var getProto = require_get_proto();
+    var $ObjectGPO = require_Object_getPrototypeOf();
+    var $ReflectGPO = require_Reflect_getPrototypeOf();
     var $apply = require_functionApply();
     var $call = require_functionCall();
     var needsEval = {};
@@ -71660,11 +71764,15 @@ var require_get_intrinsic = __commonJS({
       "%Function.prototype.call%": $call,
       "%Function.prototype.apply%": $apply,
       "%Object.defineProperty%": $defineProperty,
+      "%Object.getPrototypeOf%": $ObjectGPO,
       "%Math.abs%": abs,
       "%Math.floor%": floor,
       "%Math.max%": max,
       "%Math.min%": min,
-      "%Math.pow%": pow
+      "%Math.pow%": pow,
+      "%Math.round%": round,
+      "%Math.sign%": sign,
+      "%Reflect.getPrototypeOf%": $ReflectGPO
     };
     if (getProto) {
       try {
@@ -85645,7 +85753,7 @@ var require_lodash8 = __commonJS({
 });
 
 // node_modules/jsonwebtoken/sign.js
-var require_sign = __commonJS({
+var require_sign2 = __commonJS({
   "node_modules/jsonwebtoken/sign.js"(exports2, module2) {
     var timespan = require_timespan();
     var PS_SUPPORTED = require_psSupported();
@@ -85875,11 +85983,345 @@ var require_jsonwebtoken = __commonJS({
     module2.exports = {
       decode: require_decode(),
       verify: require_verify(),
-      sign: require_sign(),
+      sign: require_sign2(),
       JsonWebTokenError: require_JsonWebTokenError(),
       NotBeforeError: require_NotBeforeError(),
       TokenExpiredError: require_TokenExpiredError()
     };
+  }
+});
+
+// node_modules/dotenv/package.json
+var require_package2 = __commonJS({
+  "node_modules/dotenv/package.json"(exports2, module2) {
+    module2.exports = {
+      name: "dotenv",
+      version: "16.4.7",
+      description: "Loads environment variables from .env file",
+      main: "lib/main.js",
+      types: "lib/main.d.ts",
+      exports: {
+        ".": {
+          types: "./lib/main.d.ts",
+          require: "./lib/main.js",
+          default: "./lib/main.js"
+        },
+        "./config": "./config.js",
+        "./config.js": "./config.js",
+        "./lib/env-options": "./lib/env-options.js",
+        "./lib/env-options.js": "./lib/env-options.js",
+        "./lib/cli-options": "./lib/cli-options.js",
+        "./lib/cli-options.js": "./lib/cli-options.js",
+        "./package.json": "./package.json"
+      },
+      scripts: {
+        "dts-check": "tsc --project tests/types/tsconfig.json",
+        lint: "standard",
+        pretest: "npm run lint && npm run dts-check",
+        test: "tap run --allow-empty-coverage --disable-coverage --timeout=60000",
+        "test:coverage": "tap run --show-full-coverage --timeout=60000 --coverage-report=lcov",
+        prerelease: "npm test",
+        release: "standard-version"
+      },
+      repository: {
+        type: "git",
+        url: "git://github.com/motdotla/dotenv.git"
+      },
+      funding: "https://dotenvx.com",
+      keywords: [
+        "dotenv",
+        "env",
+        ".env",
+        "environment",
+        "variables",
+        "config",
+        "settings"
+      ],
+      readmeFilename: "README.md",
+      license: "BSD-2-Clause",
+      devDependencies: {
+        "@types/node": "^18.11.3",
+        decache: "^4.6.2",
+        sinon: "^14.0.1",
+        standard: "^17.0.0",
+        "standard-version": "^9.5.0",
+        tap: "^19.2.0",
+        typescript: "^4.8.4"
+      },
+      engines: {
+        node: ">=12"
+      },
+      browser: {
+        fs: false
+      }
+    };
+  }
+});
+
+// node_modules/dotenv/lib/main.js
+var require_main2 = __commonJS({
+  "node_modules/dotenv/lib/main.js"(exports2, module2) {
+    var fs = require("fs");
+    var path = require("path");
+    var os = require("os");
+    var crypto5 = require("crypto");
+    var packageJson = require_package2();
+    var version2 = packageJson.version;
+    var LINE = /(?:^|^)\s*(?:export\s+)?([\w.-]+)(?:\s*=\s*?|:\s+?)(\s*'(?:\\'|[^'])*'|\s*"(?:\\"|[^"])*"|\s*`(?:\\`|[^`])*`|[^#\r\n]+)?\s*(?:#.*)?(?:$|$)/mg;
+    function parse2(src) {
+      const obj = {};
+      let lines = src.toString();
+      lines = lines.replace(/\r\n?/mg, "\n");
+      let match;
+      while ((match = LINE.exec(lines)) != null) {
+        const key = match[1];
+        let value = match[2] || "";
+        value = value.trim();
+        const maybeQuote = value[0];
+        value = value.replace(/^(['"`])([\s\S]*)\1$/mg, "$2");
+        if (maybeQuote === '"') {
+          value = value.replace(/\\n/g, "\n");
+          value = value.replace(/\\r/g, "\r");
+        }
+        obj[key] = value;
+      }
+      return obj;
+    }
+    function _parseVault(options) {
+      const vaultPath = _vaultPath(options);
+      const result = DotenvModule.configDotenv({ path: vaultPath });
+      if (!result.parsed) {
+        const err = new Error(`MISSING_DATA: Cannot parse ${vaultPath} for an unknown reason`);
+        err.code = "MISSING_DATA";
+        throw err;
+      }
+      const keys = _dotenvKey(options).split(",");
+      const length = keys.length;
+      let decrypted;
+      for (let i = 0; i < length; i++) {
+        try {
+          const key = keys[i].trim();
+          const attrs = _instructions(result, key);
+          decrypted = DotenvModule.decrypt(attrs.ciphertext, attrs.key);
+          break;
+        } catch (error) {
+          if (i + 1 >= length) {
+            throw error;
+          }
+        }
+      }
+      return DotenvModule.parse(decrypted);
+    }
+    function _log(message) {
+      console.log(`[dotenv@${version2}][INFO] ${message}`);
+    }
+    function _warn(message) {
+      console.log(`[dotenv@${version2}][WARN] ${message}`);
+    }
+    function _debug(message) {
+      console.log(`[dotenv@${version2}][DEBUG] ${message}`);
+    }
+    function _dotenvKey(options) {
+      if (options && options.DOTENV_KEY && options.DOTENV_KEY.length > 0) {
+        return options.DOTENV_KEY;
+      }
+      if (process.env.DOTENV_KEY && process.env.DOTENV_KEY.length > 0) {
+        return process.env.DOTENV_KEY;
+      }
+      return "";
+    }
+    function _instructions(result, dotenvKey) {
+      let uri;
+      try {
+        uri = new URL(dotenvKey);
+      } catch (error) {
+        if (error.code === "ERR_INVALID_URL") {
+          const err = new Error("INVALID_DOTENV_KEY: Wrong format. Must be in valid uri format like dotenv://:key_1234@dotenvx.com/vault/.env.vault?environment=development");
+          err.code = "INVALID_DOTENV_KEY";
+          throw err;
+        }
+        throw error;
+      }
+      const key = uri.password;
+      if (!key) {
+        const err = new Error("INVALID_DOTENV_KEY: Missing key part");
+        err.code = "INVALID_DOTENV_KEY";
+        throw err;
+      }
+      const environment2 = uri.searchParams.get("environment");
+      if (!environment2) {
+        const err = new Error("INVALID_DOTENV_KEY: Missing environment part");
+        err.code = "INVALID_DOTENV_KEY";
+        throw err;
+      }
+      const environmentKey = `DOTENV_VAULT_${environment2.toUpperCase()}`;
+      const ciphertext = result.parsed[environmentKey];
+      if (!ciphertext) {
+        const err = new Error(`NOT_FOUND_DOTENV_ENVIRONMENT: Cannot locate environment ${environmentKey} in your .env.vault file.`);
+        err.code = "NOT_FOUND_DOTENV_ENVIRONMENT";
+        throw err;
+      }
+      return { ciphertext, key };
+    }
+    function _vaultPath(options) {
+      let possibleVaultPath = null;
+      if (options && options.path && options.path.length > 0) {
+        if (Array.isArray(options.path)) {
+          for (const filepath of options.path) {
+            if (fs.existsSync(filepath)) {
+              possibleVaultPath = filepath.endsWith(".vault") ? filepath : `${filepath}.vault`;
+            }
+          }
+        } else {
+          possibleVaultPath = options.path.endsWith(".vault") ? options.path : `${options.path}.vault`;
+        }
+      } else {
+        possibleVaultPath = path.resolve(process.cwd(), ".env.vault");
+      }
+      if (fs.existsSync(possibleVaultPath)) {
+        return possibleVaultPath;
+      }
+      return null;
+    }
+    function _resolveHome(envPath) {
+      return envPath[0] === "~" ? path.join(os.homedir(), envPath.slice(1)) : envPath;
+    }
+    function _configVault(options) {
+      _log("Loading env from encrypted .env.vault");
+      const parsed = DotenvModule._parseVault(options);
+      let processEnv = process.env;
+      if (options && options.processEnv != null) {
+        processEnv = options.processEnv;
+      }
+      DotenvModule.populate(processEnv, parsed, options);
+      return { parsed };
+    }
+    function configDotenv(options) {
+      const dotenvPath = path.resolve(process.cwd(), ".env");
+      let encoding = "utf8";
+      const debug = Boolean(options && options.debug);
+      if (options && options.encoding) {
+        encoding = options.encoding;
+      } else {
+        if (debug) {
+          _debug("No encoding is specified. UTF-8 is used by default");
+        }
+      }
+      let optionPaths = [dotenvPath];
+      if (options && options.path) {
+        if (!Array.isArray(options.path)) {
+          optionPaths = [_resolveHome(options.path)];
+        } else {
+          optionPaths = [];
+          for (const filepath of options.path) {
+            optionPaths.push(_resolveHome(filepath));
+          }
+        }
+      }
+      let lastError;
+      const parsedAll = {};
+      for (const path2 of optionPaths) {
+        try {
+          const parsed = DotenvModule.parse(fs.readFileSync(path2, { encoding }));
+          DotenvModule.populate(parsedAll, parsed, options);
+        } catch (e) {
+          if (debug) {
+            _debug(`Failed to load ${path2} ${e.message}`);
+          }
+          lastError = e;
+        }
+      }
+      let processEnv = process.env;
+      if (options && options.processEnv != null) {
+        processEnv = options.processEnv;
+      }
+      DotenvModule.populate(processEnv, parsedAll, options);
+      if (lastError) {
+        return { parsed: parsedAll, error: lastError };
+      } else {
+        return { parsed: parsedAll };
+      }
+    }
+    function config(options) {
+      if (_dotenvKey(options).length === 0) {
+        return DotenvModule.configDotenv(options);
+      }
+      const vaultPath = _vaultPath(options);
+      if (!vaultPath) {
+        _warn(`You set DOTENV_KEY but you are missing a .env.vault file at ${vaultPath}. Did you forget to build it?`);
+        return DotenvModule.configDotenv(options);
+      }
+      return DotenvModule._configVault(options);
+    }
+    function decrypt(encrypted, keyStr) {
+      const key = Buffer.from(keyStr.slice(-64), "hex");
+      let ciphertext = Buffer.from(encrypted, "base64");
+      const nonce = ciphertext.subarray(0, 12);
+      const authTag = ciphertext.subarray(-16);
+      ciphertext = ciphertext.subarray(12, -16);
+      try {
+        const aesgcm = crypto5.createDecipheriv("aes-256-gcm", key, nonce);
+        aesgcm.setAuthTag(authTag);
+        return `${aesgcm.update(ciphertext)}${aesgcm.final()}`;
+      } catch (error) {
+        const isRange = error instanceof RangeError;
+        const invalidKeyLength = error.message === "Invalid key length";
+        const decryptionFailed = error.message === "Unsupported state or unable to authenticate data";
+        if (isRange || invalidKeyLength) {
+          const err = new Error("INVALID_DOTENV_KEY: It must be 64 characters long (or more)");
+          err.code = "INVALID_DOTENV_KEY";
+          throw err;
+        } else if (decryptionFailed) {
+          const err = new Error("DECRYPTION_FAILED: Please check your DOTENV_KEY");
+          err.code = "DECRYPTION_FAILED";
+          throw err;
+        } else {
+          throw error;
+        }
+      }
+    }
+    function populate(processEnv, parsed, options = {}) {
+      const debug = Boolean(options && options.debug);
+      const override = Boolean(options && options.override);
+      if (typeof parsed !== "object") {
+        const err = new Error("OBJECT_REQUIRED: Please check the processEnv argument being passed to populate");
+        err.code = "OBJECT_REQUIRED";
+        throw err;
+      }
+      for (const key of Object.keys(parsed)) {
+        if (Object.prototype.hasOwnProperty.call(processEnv, key)) {
+          if (override === true) {
+            processEnv[key] = parsed[key];
+          }
+          if (debug) {
+            if (override === true) {
+              _debug(`"${key}" is already defined and WAS overwritten`);
+            } else {
+              _debug(`"${key}" is already defined and was NOT overwritten`);
+            }
+          }
+        } else {
+          processEnv[key] = parsed[key];
+        }
+      }
+    }
+    var DotenvModule = {
+      configDotenv,
+      _configVault,
+      _parseVault,
+      config,
+      decrypt,
+      parse: parse2,
+      populate
+    };
+    module2.exports.configDotenv = DotenvModule.configDotenv;
+    module2.exports._configVault = DotenvModule._configVault;
+    module2.exports._parseVault = DotenvModule._parseVault;
+    module2.exports.config = DotenvModule.config;
+    module2.exports.decrypt = DotenvModule.decrypt;
+    module2.exports.parse = DotenvModule.parse;
+    module2.exports.populate = DotenvModule.populate;
+    module2.exports = DotenvModule;
   }
 });
 
@@ -86145,9 +86587,15 @@ var articleSchema = import_apollo_server_lambda.gql`
     workshop_id: Int
   }
 
+  type Workshop {
+    id: ID!
+    name: String!
+  }
+
   type Query {
     getAllArticles(input: ArticleInput): [Article]
     getSingleArticle(input: ArticleInput): Article
+    getAllWorkshops: [Workshop!]!
   }
 
   type Mutation {
@@ -86309,10 +86757,12 @@ var schemas_default = rootSchema;
 var import_bcryptjs = __toESM(require_bcryptjs(), 1);
 var import_jsonwebtoken = __toESM(require_jsonwebtoken(), 1);
 
-// db/dbClient.js
+// db.js
 var import_knex = __toESM(require("knex"), 1);
 
 // knexfile.js
+var import_dotenv = __toESM(require_main2(), 1);
+import_dotenv.default.config();
 var knexfile_default = {
   development: {
     client: "pg",
@@ -86321,55 +86771,34 @@ var knexfile_default = {
       user: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      port: process.env.DB_PORT
+      port: process.env.DB_PORT,
+      ssl: {
+        rejectUnauthorized: false
+      }
     },
     migrations: {
       directory: "./db/migrations"
-    }
-  },
-  staging: {
-    client: "pg",
-    connection: {
-      host: process.env.DB_HOST,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_NAME,
-      port: process.env.DB_PORT
     },
-    migrations: {
-      directory: "./db/migrations"
-    }
-  },
-  production: {
-    client: "pg",
-    connection: {
-      host: process.env.DB_HOST,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_NAME,
-      port: process.env.DB_PORT
-    },
-    migrations: {
-      directory: "./db/migrations"
-    }
+    pool: { min: 2, max: 10, acquireTimeoutMillis: 3e4 }
   }
 };
 
-// db/dbClient.js
-var db = (0, import_knex.default)(knexfile_default.development);
-var dbClient_default = db;
+// db.js
+var environment = process.env.NODE_ENV || "development";
+var db = (0, import_knex.default)(knexfile_default[environment]);
+var db_default = db;
 
 // db/queries/authQueries.js
 var createUser = async (email, password, name) => {
-  return await dbClient_default("users").insert({
+  return await db_default("users").insert({
     email,
     password,
     name,
-    created_at: dbClient_default.fn.now()
+    created_at: db_default.fn.now()
   }).returning(["id", "email", "name", "created_at"]);
 };
 var getUserByEmail = async (email) => {
-  return await dbClient_default("users").select("id", "email", "password", "name", "created_at").where({ email }).first();
+  return await db_default("users").select("id", "email", "password", "name", "created_at").where({ email }).first();
 };
 
 // graphql/resolvers/auth.js
@@ -86407,7 +86836,7 @@ var auth = {
 
 // db/queries/articleQueries.js
 var getAllArticles = async (search, workshop_id) => {
-  const query = dbClient_default("articles").select("*").where({ is_deleted: false });
+  const query = db_default("articles").select("*").where({ is_deleted: false });
   if (search) {
     query.andWhere("name", "ILIKE", `%${search}%`);
   }
@@ -86415,13 +86844,16 @@ var getAllArticles = async (search, workshop_id) => {
     query.andWhere({ workshop_id });
   }
   const result = await query;
-  return await query;
+  return result;
+};
+var getAllWorkshops = async () => {
+  return await db_default("workshops").select("*");
 };
 var getSingleArticle = async (id) => {
-  return await dbClient_default("articles").select("*").where({ id, is_deleted: false });
+  return await db_default("articles").select("*").where({ id, is_deleted: false });
 };
 var addArticle = async ({ name, price, quantity, workshop_id }) => {
-  return await dbClient_default("articles").insert({ name, price, quantity, workshop_id }).returning("*");
+  return await db_default("articles").insert({ name, price, quantity, workshop_id }).returning("*");
 };
 var updateArticle = async ({
   id,
@@ -86438,11 +86870,11 @@ var updateArticle = async ({
   if (Object.keys(updateFields).length === 0) {
     throw new Error("No fields to update");
   }
-  updateFields.updated_at = dbClient_default.fn.now();
-  return await dbClient_default("articles").update(updateFields).where({ id }).returning("*");
+  updateFields.updated_at = db_default.fn.now();
+  return await db_default("articles").update(updateFields).where({ id }).returning("*");
 };
 var deleteArticle = async (id) => {
-  return await dbClient_default("articles").update({ is_deleted: true, deleted_at: dbClient_default.fn.now() }).where({ id }).returning("*");
+  return await db_default("articles").update({ is_deleted: true, deleted_at: db_default.fn.now() }).where({ id }).returning("*");
 };
 
 // graphql/resolvers/articles.js
@@ -86454,6 +86886,10 @@ var articles = {
     getSingleArticle: async (_, { input: { id } }) => {
       const result = await getSingleArticle(id);
       return result[0];
+    },
+    getAllWorkshops: async () => {
+      const result = await getAllWorkshops();
+      return result;
     }
   },
   Mutation: {
@@ -86480,7 +86916,7 @@ var articles = {
 
 // db/queries/soldQueries.js
 var getAllSoldArticles = async (search, workshop_id) => {
-  const query = dbClient_default("sold_articles").select("*");
+  const query = db_default("sold_articles").select("*");
   if (search) {
     query.whereIn("article_id", function() {
       this.select("id").from("articles").where("name", "ILIKE", `%${search}%`);
@@ -86492,8 +86928,8 @@ var getAllSoldArticles = async (search, workshop_id) => {
   return await query;
 };
 var addSoldArticle = async (article_id, quantity_sold, workshop_id, name) => {
-  await dbClient_default("articles").where({ id: article_id }).andWhere("quantity", ">=", quantity_sold).update({ quantity: dbClient_default.raw("quantity - ?", [quantity_sold]) });
-  return await dbClient_default("sold_articles").insert({
+  await db_default("articles").where({ id: article_id }).andWhere("quantity", ">=", quantity_sold).update({ quantity: db_default.raw("quantity - ?", [quantity_sold]) });
+  return await db_default("sold_articles").insert({
     name,
     article_id,
     quantity_sold,
@@ -86529,7 +86965,7 @@ var soldArticles = {
 
 // db/queries/transferQueries.js
 var getAllTransferredArticles = async (search) => {
-  const query = dbClient_default("transferred_articles").select("*");
+  const query = db_default("transferred_articles").select("*");
   if (search) {
     query.whereIn("article_id", function() {
       this.select("id").from("articles").where("name", "ILIKE", `%${search}%`);
@@ -86538,16 +86974,16 @@ var getAllTransferredArticles = async (search) => {
   return await query;
 };
 var addTransferredArticle = async (article_id, transferred_from, transferred_to, quantity, name) => {
-  await dbClient_default("articles").where({ id: article_id, workshop_id: transferred_from }).update({ quantity: dbClient_default.raw("quantity - ?", [quantity]) });
-  const article = await dbClient_default("articles").where({ id: article_id });
+  await db_default("articles").where({ id: article_id, workshop_id: transferred_from }).update({ quantity: db_default.raw("quantity - ?", [quantity]) });
+  const article = await db_default("articles").where({ id: article_id });
   const { price } = article[0];
-  await dbClient_default("articles").insert({
+  await db_default("articles").insert({
     name,
     price,
     quantity,
     workshop_id: transferred_to
   });
-  return await dbClient_default("transferred_articles").insert({
+  return await db_default("transferred_articles").insert({
     transferred_from,
     transferred_to,
     quantity,
@@ -86598,12 +87034,6 @@ var resolvers = {
 };
 var resolvers_default = resolvers;
 
-// db.js
-var import_knex2 = __toESM(require("knex"), 1);
-var environment = process.env.NODE_ENV || "development";
-var db2 = (0, import_knex2.default)(knexfile_default[environment]);
-var db_default = db2;
-
 // handler.js
 var lambdaPlayground = require_dist16().default;
 var server = new import_apollo_server_lambda6.ApolloServer({
@@ -86613,7 +87043,7 @@ var server = new import_apollo_server_lambda6.ApolloServer({
 });
 var graphqlHandler = server.createHandler();
 var playgroundHandler = lambdaPlayground({
-  endpoint: "/dev"
+  endpoint: "/dev/graphql"
 });
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {

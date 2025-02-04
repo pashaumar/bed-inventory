@@ -14,7 +14,7 @@ export async function up(knex) {
       .integer("workshop_id")
       .unsigned()
       .references("id")
-      .inTable("workshops")
+      .inTable("workshops_v2")
       .onDelete("CASCADE");
     table.integer("updated_by").nullable();
     table.timestamp("updated_at").defaultTo(knex.fn.now());

@@ -8,7 +8,7 @@ export async function up(knex) {
       .integer("workshop_id")
       .unsigned()
       .references("id")
-      .inTable("workshops")
+      .inTable("workshops_v2")
       .onDelete("CASCADE");
     table.boolean("is_deleted").defaultTo(false);
     table.timestamp("deleted_at").nullable();

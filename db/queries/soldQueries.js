@@ -1,6 +1,11 @@
-import db from "../dbClient.js";
+import db from "../../db.js";
 
-export const getAllSoldArticles = async (search, workshop_id) => {
+export const getAllSoldArticles = async (
+  search,
+  workshop_id,
+  start_date,
+  end_date
+) => {
   const query = db("sold_articles").select("*");
 
   if (search) {
@@ -13,6 +18,13 @@ export const getAllSoldArticles = async (search, workshop_id) => {
     query.andWhere({ workshop_id });
   }
 
+  if (start_date && end_date) {
+    query.andWhereBetween("updated_at", [
+      `${start_date} 00:00:00`,
+      `${end_date} 23:59:59`,
+    ]);
+  }
+
   return await query;
 };
 
@@ -20,7 +32,8 @@ export const addSoldArticle = async (
   article_id,
   quantity_sold,
   workshop_id,
-  name
+  name,
+  price
 ) => {
   // Deduct quantity from articles
   await db("articles")
@@ -34,6 +47,7 @@ export const addSoldArticle = async (
       article_id,
       quantity_sold,
       workshop_id,
+      price,
     })
     .returning("*");
 };

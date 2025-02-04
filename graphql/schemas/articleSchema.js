@@ -10,9 +10,15 @@ export const articleSchema = gql`
     workshop_id: Int
   }
 
+  type Workshop {
+    id: ID!
+    name: String!
+  }
+
   type Query {
     getAllArticles(input: ArticleInput): [Article]
     getSingleArticle(input: ArticleInput): Article
+    getAllWorkshops: [Workshop!]!
   }
 
   type Mutation {
@@ -39,7 +45,7 @@ export const articleSchema = gql`
   input editArticleInput {
     id: ID!
     name: String
-    price: Float
+    price: Float!
     quantity: Int
     workshop_id: Int
   }

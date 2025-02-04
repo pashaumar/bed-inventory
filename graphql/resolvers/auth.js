@@ -6,7 +6,10 @@ const SECRET_KEY = "your-secret-key"; // Use environment variables in production
 
 export const auth = {
   Mutation: {
-    signUp: async (_, { input: { email, password, name } }) => {
+    signUp: async (
+      _,
+      { input: { email, password, name, role, workshop_id } }
+    ) => {
       // Check if the user already exists
       const existingUser = await getUserByEmail(email);
       if (existingUser) {
@@ -17,7 +20,9 @@ export const auth = {
       const hashedPassword = await bcrypt.hash(password, 10);
 
       // Create the user
-      const response = (await createUser(email, hashedPassword, name)) || [];
+      const response =
+        (await createUser(email, hashedPassword, name, role, workshop_id)) ||
+        [];
 
       const user = response[0];
 
@@ -39,7 +44,12 @@ export const auth = {
 
       // Generate a JWT token
       const token = jwt.sign(
-        { userId: user.id, email: user.email },
+        {
+          userId: user.id,
+          email: user.email,
+          role: user.role,
+          workshop_id: user.workshop_id,
+        },
         SECRET_KEY,
         { expiresIn: "7d" }
       );

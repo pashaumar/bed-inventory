@@ -2,6 +2,7 @@ import { ApolloServer } from "apollo-server-lambda";
 import typeDefs from "./graphql/schemas/index.js";
 import resolvers from "./graphql/resolvers/index.js";
 import db from "./db.js";
+
 const lambdaPlayground =
   require("graphql-playground-middleware-lambda").default;
 
@@ -11,8 +12,14 @@ const server = new ApolloServer({
   context: () => ({ db }),
 });
 
-export const graphqlHandler = server.createHandler();
+export const graphqlHandler = server.createHandler({
+  cors: {
+    origin: "*",
+    credentials: false,
+    methods: ["POST", "OPTIONS"],
+  },
+});
 
 export const playgroundHandler = lambdaPlayground({
-  endpoint: "/dev",
+  endpoint: "/dev/graphql",
 });

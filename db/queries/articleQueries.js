@@ -1,4 +1,4 @@
-import db from "../dbClient.js";
+import db from "../../db.js";
 
 export const getAllArticles = async (search, workshop_id) => {
   const query = db("articles").select("*").where({ is_deleted: false });
@@ -13,7 +13,10 @@ export const getAllArticles = async (search, workshop_id) => {
 
   const result = await query;
 
-  return await query;
+  return result;
+};
+export const getAllWorkshops = async () => {
+  return await db("workshops_v2").select("*");
 };
 
 export const getSingleArticle = async (id) => {
