@@ -42,15 +42,16 @@ export const auth = {
         throw new Error("Invalid email or password");
       }
 
-      const { id, email, role, workshop_id } = user;
-
       // Generate a JWT token
       const token = jwt.sign(
-        { userId: id, email, role, workshop_id },
-        SECRET_KEY,
         {
-          expiresIn: "7d",
-        }
+          userId: user.id,
+          email: user.email,
+          role: user.role,
+          workshop_id: user.workshop_id,
+        },
+        SECRET_KEY,
+        { expiresIn: "7d" }
       );
 
       return { user, token };
