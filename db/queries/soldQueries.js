@@ -41,6 +41,12 @@ export const addSoldArticle = async (
     .andWhere("quantity", ">=", quantity_sold)
     .update({ quantity: db.raw("quantity - ?", [quantity_sold]) });
 
+  const article = await db("articles").where({ id: article_id }).first();
+
+  if (article && article.quantity === 0) {
+    await db("articles").where({ id: article_id }).del();
+  }
+
   return await db("sold_articles")
     .insert({
       name,
