@@ -6,11 +6,126 @@
     "composeOrgName": null,
     "composeServiceName": null,
     "command": [],
-    "options": {
-      "version": true
-    },
+    "options": {},
     "error": null,
-    "machineId": "78f06d8d8a31bd05488b81fbbf4990e1",
+    "machineId": "63258d5a64502f90507d71cb733f4f3b",
+    "serviceProviderAwsCfStackId": null,
+    "serviceProviderAwsCfStackCreated": null,
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": null,
+    "serviceProviderAwsCfStackOutputs": null
+  },
+  "/Users/mohdumar/BE/bed-inventory": {
+    "versionSfCore": null,
+    "versionFramework": "4.4.19",
+    "isWithinCompose": false,
+    "isCompose": false,
+    "composeOrgName": null,
+    "composeServiceName": null,
+    "servicePath": "/Users/mohdumar/BE/bed-inventory",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "org": "pashaumar",
+      "app": "graphql-backend",
+      "service": "graphql-backend",
+      "useDotenv": true,
+      "provider": {
+        "name": "aws",
+        "runtime": "nodejs20.x",
+        "region": "us-east-1",
+        "stage": "dev",
+        "environment": {
+          "DB_USER": "postgres",
+          "DB_HOST": "localhost",
+          "DB_NAME": "postgres",
+          "DB_PORT": "5432",
+          "DB_PASSWORD": "<REDACTED>",
+          "SERVERLESS_ACCESS_KEY": "<REDACTED>"
+        }
+      },
+      "plugins": [
+        "serverless-esbuild",
+        "serverless-offline"
+      ],
+      "build": {
+        "esbuild": false
+      },
+      "functions": {
+        "graphql": {
+          "handler": "handler.graphqlHandler",
+          "events": [
+            {
+              "http": {
+                "method": "post",
+                "path": "graphql"
+              }
+            }
+          ]
+        },
+        "playground": {
+          "handler": "handler.playgroundHandler",
+          "events": [
+            {
+              "http": {
+                "method": "get",
+                "path": "playground"
+              }
+            }
+          ]
+        }
+      },
+      "custom": {
+        "esbuild": {
+          "external": [
+            "commonjs",
+            "knex",
+            "pg"
+          ]
+        }
+      },
+      "package": {
+        "patterns": [
+          "./db/migrations/**"
+        ]
+      }
+    },
+    "serviceRawFile": "# \"org\" ensures this Service is used with the correct Serverless Framework Access Key.\norg: pashaumar\n# \"app\" enables Serverless Framework Dashboard features and sharing them with other Services.\napp: graphql-backend\n# \"service\" is the name of this project. This will also be added to your AWS resource names.\nservice: graphql-backend\n\nuseDotenv: true\n\nprovider:\n  name: aws\n  runtime: nodejs20.x\n  region: us-east-1\n  stage: ${env:PROVIDER_STAGE, 'dev'}\n  environment:\n    DB_USER: ${env:DB_USER}\n    DB_HOST: ${env:DB_HOST}\n    DB_NAME: ${env:DB_NAME}\n    DB_PORT: ${env:DB_PORT}\n    DB_PASSWORD: ${env:DB_PASSWORD}\n    SERVERLESS_ACCESS_KEY: ${env:SERVERLESS_ACCESS_KEY}\n\nplugins:\n  - serverless-esbuild\n  - serverless-offline\n\nbuild:\n  esbuild: false\n\nfunctions:\n  graphql:\n    handler: handler.graphqlHandler\n    events:\n      - http:\n          method: post\n          path: graphql\n  playground:\n    handler: handler.playgroundHandler\n    events:\n      - http:\n          method: get\n          path: playground\n\ncustom:\n  esbuild:\n    external:\n      - \"commonjs\"\n      - \"knex\"\n      - \"pg\"\n\npackage:\n  patterns:\n    - \"./db/migrations/**\"\n",
+    "command": [
+      "offline",
+      "start"
+    ],
+    "options": {},
+    "error": {
+      "message": "Cannot resolve '${env:SERVERLESS_ACCESS_KEY}' variable at 'provider.environment.SERVERLESS_ACCESS_KEY'. No value is available for this variable, and no default value was provided. Please check your variable definitions or provide a default value.",
+      "stack": "Error: Cannot resolve '${env:SERVERLESS_ACCESS_KEY}' variable at 'provider.environment.SERVERLESS_ACCESS_KEY'. No value is available for this variable, and no default value was provided. Please check your variable definitions or provide a default value.\n    at _ResolverManager.resolve (file:///Users/mohdumar/.serverless/releases/4.4.19/package/dist/sf-core.js:693:57587)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async #handlePlaceholderNode (file:///Users/mohdumar/.serverless/releases/4.4.19/package/dist/sf-core.js:693:55959)\n    at async file:///Users/mohdumar/.serverless/releases/4.4.19/package/dist/sf-core.js:693:53887\n    at async processNodeAndHandleCompletion (file:///Users/mohdumar/.serverless/releases/4.4.19/package/dist/sf-core.js:693:44836)",
+      "code": "MISSING_VARIABLE_RESULT"
+    },
+    "machineId": "5454fef61475f48ff43b225d3bfe1c53",
+    "stage": "dev",
+    "accessKeyV2": "<REDACTED>",
+    "accessKeyV1": "<REDACTED>",
+    "orgId": "275fdb22-a64c-4a53-974d-5b78c1a2828f",
+    "orgName": "pashaumar",
+    "userId": "9DmzSc2VrCT2x4t2Lx",
+    "dashboard": {
+      "isEnabledForService": true,
+      "requiredAuthentication": false,
+      "orgFeaturesInUse": {
+        "providers": true,
+        "monitoring": false
+      },
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": "yb98cvcdJnh7chpJRj",
+      "serviceProvider": {
+        "accessKeyId": "<REDACTED>",
+        "secretAccessKey": "<REDACTED>",
+        "sessionToken": "<REDACTED>"
+      },
+      "instanceParameters": null
+    },
+    "userName": "pashaumar",
+    "subscription": null,
+    "userEmail": "pasha.u.144@gmail.com",
     "serviceProviderAwsCfStackId": null,
     "serviceProviderAwsCfStackCreated": null,
     "serviceProviderAwsCfStackUpdated": null,

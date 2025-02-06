@@ -1,4 +1,4 @@
-import db from "../dbClient.js";
+import db from "../../db.js";
 
 export const getAllTransferredArticles = async (search) => {
   const query = db("transferred_articles").select("*");

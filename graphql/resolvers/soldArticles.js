@@ -7,20 +7,29 @@ import {
 
 export const soldArticles = {
   Query: {
-    getAllSoldArticles: async (_, { input: { search, workshop_id } = {} }) => {
-      return await getAllSoldArticles(search, workshop_id);
+    getAllSoldArticles: async (
+      _,
+      { input: { search, workshop_id, start_date, end_date } = {} }
+    ) => {
+      return await getAllSoldArticles(
+        search,
+        workshop_id,
+        start_date,
+        end_date
+      );
     },
   },
   Mutation: {
     createSoldArticle: async (
       _,
-      { input: { article_id, quantity_sold, workshop_id, name } }
+      { input: { article_id, quantity_sold, workshop_id, name, price } }
     ) => {
       const result = await addSoldArticle(
         article_id,
         quantity_sold,
         workshop_id,
-        name
+        name,
+        price
       );
       return result[0];
     },

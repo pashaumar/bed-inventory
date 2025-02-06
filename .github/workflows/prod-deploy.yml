@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - staging
 
 jobs:
   deploy:
@@ -12,18 +11,22 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
+        uses: actions/setup-node@v4
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Deploy to Production
         run: |
-          serverless deploy --stage production
+          npm run knex_migration
+          npm run prod_deploy
         env:
-          DB_HOST: ${{ secrets.DB_HOST_PROD }}
+          DB_USER: ${{ secrets.DB_USER_STAGING }}
+          DB_HOST: ${{ secrets.DB_HOST_STAGING }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD_STAGING }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}

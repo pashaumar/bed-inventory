@@ -4,6 +4,7 @@ import {
   updateArticle,
   deleteArticle,
   getSingleArticle,
+  getAllWorkshops,
 } from "../../db/queries/articleQueries.js";
 
 export const articles = {
@@ -14,6 +15,10 @@ export const articles = {
     getSingleArticle: async (_, { input: { id } }) => {
       const result = await getSingleArticle(id);
       return result[0];
+    },
+    getAllWorkshops: async () => {
+      const result = await getAllWorkshops();
+      return result;
     },
   },
   Mutation: {
